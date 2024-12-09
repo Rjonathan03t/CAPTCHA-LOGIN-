@@ -8,7 +8,7 @@ const Login: React.FC = () => {
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [error, setError] = useState<string>("");
 
-  const siteKey = "6LeEcJYqAAAAAK1Q_vhLbi6grpbPEjn7rDQGePWD"; 
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""; 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,7 +37,8 @@ const Login: React.FC = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
+            style={{ width: "100%", padding: "8px", marginBottom: "10px", color: "black" }}
+    
           />
         </div>
         <div style={{ marginBottom: "10px" }}>
@@ -47,7 +48,7 @@ const Login: React.FC = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
+            style={{ width: "100%", padding: "8px", marginBottom: "10px", color: "black" }}
           />
         </div>
         <div style={{ marginBottom: "10px" }}>
